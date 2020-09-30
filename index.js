@@ -95,10 +95,10 @@ client.on("message", async message => {
    // building the embed that will be posted
    const HMEmbed = new Discord.MessageEmbed()
 	.setColor('#0099ff')
-	.addField(`latest repost on LBRY channel`, dateutc, true)
+	.addField('recent news reposted on '+ yourLBRYchannelURL +' @neonews', dateutc, true)
 //	.setImage( hm)
 	.setTimestamp()
-	.setFooter('Source : LBRY', 'https://bitcoinwisdom.io/apple-touch-icon-180x180.png');
+	.setFooter('Source : '+ yourLBRYchannelURL +' ', 'https://bitcoinwisdom.io/apple-touch-icon-180x180.png');
    message.channel.send(HMEmbed);
   }
  
