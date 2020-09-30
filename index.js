@@ -83,7 +83,7 @@ client.on("message", async message => {
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
  
-  // this is the main command, hm for heatmap
+  // this is the main command, ln for LBRY news
   if(command === "ln") {
 
    // we have to add a timestamp to the URL so that discord does not cache the image
@@ -96,7 +96,7 @@ client.on("message", async message => {
    const HMEmbed = new Discord.MessageEmbed()
 	.setColor('#0099ff')
 	.addField(`latest repost on LBRY channel`, dateutc, true)
-	.setImage( hm)
+//	.setImage( hm)
 	.setTimestamp()
 	.setFooter('Source : LBRY', 'https://bitcoinwisdom.io/apple-touch-icon-180x180.png');
    message.channel.send(HMEmbed);
