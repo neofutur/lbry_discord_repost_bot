@@ -18,6 +18,13 @@ const config = require("./config.json");
 
 // the heatmap screenshot here is generated with a puppeteer headless chromium
 const  intervalmilliseconds = config.posteveryXmins * 60000; 
+const channelid=config.channelid;
+const yourLBRYchannelClaimId=config.yourLBRYchannelClaimId;
+const yourLBRYchannelURL=config.yourLBRYchannelURL;
+
+console.log(channelid);
+console.log(yourLBRYchannelClaimId);
+console.log(yourLBRYchannelURL);
 
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
@@ -88,10 +95,10 @@ client.on("message", async message => {
    // building the embed that will be posted
    const HMEmbed = new Discord.MessageEmbed()
 	.setColor('#0099ff')
-	.addField(`Bitcoinwisdom aggregated heatmap ${timeframe}m timeframe`, dateutc, true)
+	.addField(`latest repost on LBRY channel`, dateutc, true)
 	.setImage( hm)
 	.setTimestamp()
-	.setFooter('Source : Bitcoinwisdom : https://bitcoinwisdom.io/the-heatmap', 'https://bitcoinwisdom.io/apple-touch-icon-180x180.png');
+	.setFooter('Source : LBRY', 'https://bitcoinwisdom.io/apple-touch-icon-180x180.png');
    message.channel.send(HMEmbed);
   }
  
