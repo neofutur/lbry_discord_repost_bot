@@ -43,10 +43,10 @@ setInterval(() => {
   // building the embed that will be posted
   const HMEmbed = new Discord.MessageEmbed()
 	          .setColor('#0099ff')
-	          .addField('recent news reposted on '+ yourLBRYchannelURL +' @neonews', dateutc, true)
+	          .addField('recent news reposted on lbry://'+ yourLBRYchannelURL +' @neonews', dateutc, true)
 //	          .setImage( hm)
 	          .setTimestamp()
-	          .setFooter('Source : '+ yourLBRYchannelURL +' ', 'https://bitcoinwisdom.io/apple-touch-icon-180x180.png');
+	          .setFooter('Source : https://'+ yourLBRYchannelURL +' ', 'https://bitcoinwisdom.io/apple-touch-icon-180x180.png');
    // 60000 milliseconds in 1 minute
 
   client.channels.cache.get(config.channelid).send(HMEmbed);
@@ -95,10 +95,10 @@ client.on("message", async message => {
    // building the embed that will be posted
    const HMEmbed = new Discord.MessageEmbed()
 	.setColor('#0099ff')
-	.addField('recent news reposted on '+ yourLBRYchannelURL +' @neonews', dateutc, true)
+	.addField('recent news reposted on lbry://'+ yourLBRYchannelURL +' @neonews', dateutc, true)
 //	.setImage( hm)
 	.setTimestamp()
-	.setFooter('Source : '+ yourLBRYchannelURL +' ', 'https://bitcoinwisdom.io/apple-touch-icon-180x180.png');
+	.setFooter('Source : https://'+ yourLBRYchannelURL +' ', 'https://bitcoinwisdom.io/apple-touch-icon-180x180.png');
    message.channel.send(HMEmbed);
   }
  

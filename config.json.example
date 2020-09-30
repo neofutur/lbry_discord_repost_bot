@@ -4,5 +4,5 @@
 	  "channelid" : "put your discord channel id here",
 	  "posteveryXmins" : "5",
 	  "yourLBRYchannelClaimId" : "6e202c3726d1225c90637a2204c696b12c746a78",
-	  "yourLBRYchannelURL" : "lbry://@neonews#6"
+	  "yourLBRYchannelURL" : "@neonews#6"
 }
