@@ -77,23 +77,13 @@ client.on("message", async message => {
   const command = args.shift().toLowerCase();
  
   // this is the main command, hm for heatmap
-  if(command === "hm") {
-   var timeframe = 5;
-   if (!args.length) { timeframe = 5; }
-   else { timeframe = parseInt(args[0], 10); }
+  if(command === "ln") {
 
-  //console.log(`timeframe : ${timeframe} `);
-  if (!timeframe ) return;
-  if ( timeframe === 5 | timeframe === 15 | timeframe === 30 | timeframe === 60 | timeframe === 240 )
-  {
    // we have to add a timestamp to the URL so that discord does not cache the image
    const d = Math.floor(Date.now() / 1000);
    const datenow = new Date();
    const dateutc = datenow.toUTCString();
 
-   //const hm = "http://neoxena.ww7.be/heatmap_5m.png" + "?t=" + d;
-   const hm = `http://neoxena.ww7.be/heatmap_${timeframe}m.png` + "?t=" + d;
-   //console.log(`file : ${hm} `);
 
    // building the embed that will be posted
    const HMEmbed = new Discord.MessageEmbed()
@@ -104,7 +94,6 @@ client.on("message", async message => {
 	.setFooter('Source : Bitcoinwisdom : https://bitcoinwisdom.io/the-heatmap', 'https://bitcoinwisdom.io/apple-touch-icon-180x180.png');
    message.channel.send(HMEmbed);
   }
- }
  
   // Let's go with a few common example commands! Feel free to delete or change those.
   if(command === "ping") {
