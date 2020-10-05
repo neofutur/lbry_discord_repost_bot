@@ -20,28 +20,27 @@ const config = require("./config.json");
 // config.token contains the bot's token
 // config.prefix contains the message prefix.
 
-async function getReposts(channel_id) {
-	    var reposts = []
-	    const body = {method: "claim_search",
-		            params: {channel_ids: [channel_id],
-				                     claim_type: 'repost',
-				                     order_by: 'release_time',
-				    		     timestamp: `>${last_posted_timestamp}`,
-				                     no_totals: true,
-				                     page_size: 10}}
-	    const call = await fetch('http://localhost:5279', {
-		            method: 'post',
-		            body:    JSON.stringify(body),
-		        })
-	    const result = await call.json()
-	    result.result.items.map(item => {
-            //reposts.push(item.canonical_url)
-	    reposts.push([item.canonical_url, item.timestamp])
-
-            })
-//	console.log(reposts)
-//	console.log(last_posted_timestamp)
-         return reposts
+async function getReposts(channel_id) 
+{
+ var reposts = []
+ const body = {method: "claim_search",
+          params: {channel_ids: [channel_id],
+          claim_type: 'repost',
+          order_by: 'release_time',
+          timestamp: `>${last_posted_timestamp}`,
+          no_totals: true,
+          page_size: 10}}
+ const call = await fetch('http://localhost:5279', {
+            method: 'post',
+            body:    JSON.stringify(body),
+        })
+ const result = await call.json()
+ result.result.items.map(item => 
+ {
+  //reposts.push(item.canonical_url)
+  reposts.push([item.canonical_url, item.timestamp])
+ })
+ return reposts
 }
                      
 // the heatmap screenshot here is generated with a puppeteer headless chromium
@@ -72,16 +71,31 @@ setInterval(async() => {
   //var reposts = getReposts('6e202c3726d1225c90637a2204c696b12c746a78')
   //reposts = await getReposts(yourLBRYchannelClaimId);
   repostslist = await getReposts(yourLBRYchannelClaimId);
-	console.log(last_posted_timestamp)
-  // building the embed that will be posted
-  const HMEmbed = new Discord.MessageEmbed()
+  let PerElement = function(element) 
+  {
+   var LBRYlink = element[0];
+   var timestamp = element[1];
+   if ( timestamp > last_posted_timestamp )
+   {
+    console.log ( timestamp + " > " + last_posted_timestamp );
+    console.log ( LBRYlink );
+    var HTTPlink = LBRYlink.replace("lbry://", "https://"); 
+    console.log ( HTTPlink );
+    console.log ( timestamp );
+    // building the embed that will be posted
+    const HMEmbed = new Discord.MessageEmbed()
+	.setTitle('New post on ' + yourLBRYchannelURL )
+	.setDescription( '[news] ' + HTTPlink + 'new repost ' )
 	          .setColor('#0099ff')
 	.addField('title', 'recent news reposted on [link](https://lbry.tv/'+ yourLBRYchannelURL +') @neonews', dateutc, true)
 	.setTimestamp()
 	.setFooter('Source : lbry://'+ yourLBRYchannelURL +' ', 'https://bitcoinwisdom.io/apple-touch-icon-180x180.png');
+    client.channels.cache.get(config.channelid).send(HMEmbed);
+   }
+  }
+  repostslist.forEach(PerElement);
+   //console.log(last_posted_timestamp)
    // 60000 milliseconds in 1 minute
-
-  client.channels.cache.get(config.channelid).send(HMEmbed);
         }, intervalmilliseconds); // Runs this every X milliseconds.
 });
 
