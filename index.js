@@ -19,11 +19,8 @@ const config = require("./config.json");
 // config.prefix contains the message prefix.
 
 async function getReposts(channel_id) {
-<<<<<<< HEAD
 var reposts = [];
-=======
 	    const reposts = []
->>>>>>> 15ea5332b9f3f01b509579f17b9395bec1bc000e
 	    const body = {method: "claim_search",
 		            params: {channel_ids: [channel_id],
 				                     claim_type: 'repost',
@@ -36,20 +33,11 @@ var reposts = [];
 		        })
 	    const result = await call.json()
 	    result.result.items.map(item => {
-<<<<<<< HEAD
             reposts.push(item.canonical_url)
 
             })
 //	console.log(reposts)
          return reposts
-=======
-         // console.log(item.canonical_url)
-         reposts.push(item.canonical_url)
-
-            })
-		    //                 console.log(reposts)
-                    return reposts
->>>>>>> 15ea5332b9f3f01b509579f17b9395bec1bc000e
 }
                      
 // the heatmap screenshot here is generated with a puppeteer headless chromium
@@ -69,7 +57,6 @@ client.on("ready", () => {
   // docs refer to as the "ClientUser".
   client.user.setActivity(`Serving ${client.guilds.cache.size} servers`);
 
-<<<<<<< HEAD
   // this is the code to autopost every X minutes on a dedicated channel 
 setInterval(async() => {
   // we have to add a timestamp to the URL so that discord does not cache the image
@@ -82,16 +69,6 @@ setInterval(async() => {
   //reposts = await getReposts(yourLBRYchannelClaimId);
   reposts = await getReposts(yourLBRYchannelClaimId);
   console.log ( reposts );
-=======
-  // this is the code to autopost the heatmap every X minutes on a dedicated channel 
-setInterval(() => {
-   // we have to add a timestamp to the URL so that discord does not cache the image
-   const d = Math.floor(Date.now() / 1000);
-  const hm = "http://neoxena.ww7.be/heatmap_5m.png" + "?t=" + d;
-   const datenow = new Date();
-   const dateutc = datenow.toUTCString();
-   getReposts('6e202c3726d1225c90637a2204c696b12c746a78')
->>>>>>> 15ea5332b9f3f01b509579f17b9395bec1bc000e
   // building the embed that will be posted
   const HMEmbed = new Discord.MessageEmbed()
 	          .setColor('#0099ff')
