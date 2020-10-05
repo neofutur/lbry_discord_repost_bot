@@ -1,5 +1,7 @@
 // Load up the discord.js library
 const Discord = require("discord.js");
+//global.fetch = require("node-fetch");
+const fetch = require("node-fetch");
 
 /*
  DISCORD.JS VERSION 12 CODE
@@ -16,15 +18,36 @@ const config = require("./config.json");
 // config.token contains the bot's token
 // config.prefix contains the message prefix.
 
+async function getReposts(channel_id) {
+var reposts = [];
+	    const body = {method: "claim_search",
+		            params: {channel_ids: [channel_id],
+				                     claim_type: 'repost',
+				                     order_by: 'release_time',
+				                     no_totals: true,
+				                     page_size: 10}}
+	    const call = await fetch('http://localhost:5279', {
+		            method: 'post',
+		            body:    JSON.stringify(body),
+		        })
+	    const result = await call.json()
+	    result.result.items.map(item => {
+            reposts.push(item.canonical_url)
+
+            })
+//	console.log(reposts)
+         return reposts
+}
+                     
 // the heatmap screenshot here is generated with a puppeteer headless chromium
 const  intervalmilliseconds = config.posteveryXmins * 60000; 
 const channelid=config.channelid;
 const yourLBRYchannelClaimId=config.yourLBRYchannelClaimId;
 const yourLBRYchannelURL=config.yourLBRYchannelURL;
 
-console.log(channelid);
+//console.log(channelid);
 console.log(yourLBRYchannelClaimId);
-console.log(yourLBRYchannelURL);
+//console.log(yourLBRYchannelURL);
 
 client.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
@@ -33,13 +56,18 @@ client.on("ready", () => {
   // docs refer to as the "ClientUser".
   client.user.setActivity(`Serving ${client.guilds.cache.size} servers`);
 
-  // this is the code to autopost the heatmap every X minutes on a dedicated channel 
-setInterval(() => {
-   // we have to add a timestamp to the URL so that discord does not cache the image
-   const d = Math.floor(Date.now() / 1000);
-  const hm = "http://neoxena.ww7.be/heatmap_5m.png" + "?t=" + d;
-   const datenow = new Date();
-   const dateutc = datenow.toUTCString();
+  // this is the code to autopost every X minutes on a dedicated channel 
+setInterval(async() => {
+  // we have to add a timestamp to the URL so that discord does not cache the image
+  const d = Math.floor(Date.now() / 1000);
+  //const hm = "http://neoxena.ww7.be/heatmap_5m.png" + "?t=" + d;
+  const datenow = new Date();
+  const dateutc = datenow.toUTCString();
+  var reposts = [];
+  //var reposts = getReposts('6e202c3726d1225c90637a2204c696b12c746a78')
+  //reposts = await getReposts(yourLBRYchannelClaimId);
+  reposts = await getReposts(yourLBRYchannelClaimId);
+  console.log ( reposts );
   // building the embed that will be posted
   const HMEmbed = new Discord.MessageEmbed()
 	          .setColor('#0099ff')
@@ -109,6 +137,8 @@ client.on("message", async message => {
   }
   
 });
+
+
 
 client.login(config.token);
 
