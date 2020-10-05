@@ -91,6 +91,7 @@ setInterval(async() => {
 	.setTimestamp()
 	.setFooter('Source : lbry://'+ yourLBRYchannelURL +' ', 'https://bitcoinwisdom.io/apple-touch-icon-180x180.png');
     client.channels.cache.get(config.channelid).send(HMEmbed);
+    last_posted_timestamp = timestamp;
    }
   }
   repostslist.forEach(PerElement);
