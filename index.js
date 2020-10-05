@@ -26,6 +26,7 @@ async function getReposts(channel_id) {
 		            params: {channel_ids: [channel_id],
 				                     claim_type: 'repost',
 				                     order_by: 'release_time',
+				    		     timestamp: `>${last_posted_timestamp}`,
 				                     no_totals: true,
 				                     page_size: 10}}
 	    const call = await fetch('http://localhost:5279', {
