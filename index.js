@@ -50,7 +50,8 @@ async function getReposts(channel_id)
  {
   //reposts.push(item.canonical_url)
   //reposts.push([item.canonical_url, item.timestamp])
-  reposts.push([item.canonical_url, item.timestamp, item.thumbnail, item.title])
+  //console.log(item.reposted_claim.value.thumbnail)
+  reposts.push([item.canonical_url, item.timestamp, item.reposted_claim.value.thumbnail, item.reposted_claim.value.title])
  })
  return reposts
 }
@@ -87,13 +88,15 @@ setInterval(async() => {
   {
    var LBRYlink = element[0];
    var timestamp = element[1];
+   console.log ( element);
+   //console.log ( element[3]);
    if ( timestamp > last_posted_timestamp )
    {
-    console.log ( timestamp + " > " + last_posted_timestamp );
-    console.log ( LBRYlink );
+    //console.log ( timestamp + " > " + last_posted_timestamp );
+    //console.log ( LBRYlink );
     var HTTPlink = LBRYlink.replace("lbry://", "https://lbry.tv/"); 
-    console.log ( HTTPlink );
-    console.log ( timestamp );
+    //console.log ( HTTPlink );
+    //console.log ( timestamp );
     // building the embed that will be posted
     const HMEmbed = new Discord.MessageEmbed()
 	.setTitle('New post on ' + yourLBRYchannelURL )
