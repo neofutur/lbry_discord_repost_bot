@@ -2,8 +2,19 @@
 const Discord = require("discord.js");
 //global.fetch = require("node-fetch");
 const fetch = require("node-fetch");
+const fs = require('fs');
 
+let rawdata = fs.readFileSync('timestamp.json');
 let last_posted_timestamp=1601678718;
+fs.readFile('timestamp.json', (err, data) => 
+{
+ if (err) throw err;
+ let timestampfile = JSON.parse(rawdata);
+ //console.log(timestampfile);
+ last_posted_timestamp=timestampfile.timestamp
+ console.log(last_posted_timestamp);
+});
+
 
 /*
  DISCORD.JS VERSION 12 CODE
@@ -38,7 +49,8 @@ async function getReposts(channel_id)
  result.result.items.map(item => 
  {
   //reposts.push(item.canonical_url)
-  reposts.push([item.canonical_url, item.timestamp])
+  //reposts.push([item.canonical_url, item.timestamp])
+  reposts.push([item.canonical_url, item.timestamp, item.thumbnail, item.title])
  })
  return reposts
 }
@@ -79,7 +91,7 @@ setInterval(async() => {
    {
     console.log ( timestamp + " > " + last_posted_timestamp );
     console.log ( LBRYlink );
-    var HTTPlink = LBRYlink.replace("lbry://", "https://"); 
+    var HTTPlink = LBRYlink.replace("lbry://", "https://lbry.tv/"); 
     console.log ( HTTPlink );
     console.log ( timestamp );
     // building the embed that will be posted
@@ -92,6 +104,11 @@ setInterval(async() => {
 	.setFooter('Source : lbry://'+ yourLBRYchannelURL +' ', 'https://bitcoinwisdom.io/apple-touch-icon-180x180.png');
     client.channels.cache.get(config.channelid).send(HMEmbed);
     last_posted_timestamp = timestamp;
+    let jsonline ={ 
+	        timestamp: last_posted_timestamp
+    }
+    let data = JSON.stringify(jsonline);
+    fs.writeFileSync('timestamp.json', data);
    }
   }
   repostslist.forEach(PerElement);
