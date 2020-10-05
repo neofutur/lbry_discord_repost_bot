@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 //global.fetch = require("node-fetch");
 const fetch = require("node-fetch");
 
-let last_posted_timestamp=0;
+let last_posted_timestamp=1601678718;
 
 /*
  DISCORD.JS VERSION 12 CODE
