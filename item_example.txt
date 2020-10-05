@@ -1,0 +1,167 @@
+{
+  address: 'bKwW7fpcgXtNpXshZATk8HW87tBVjAQ19C',
+  amount: '0.01',
+  canonical_url: 'lbry://@neonews#6/Plandemie#6',
+  claim_id: '63780a81ecdf1ffc65d08132465ef0045f02c83a',
+  claim_op: 'create',
+  confirmations: 5,
+  height: 842075,
+  is_channel_signature_valid: true,
+  meta: {
+    activation_height: 842262,
+    creation_height: 842075,
+    creation_timestamp: 1601938590,
+    effective_amount: '0.0',
+    expiration_height: 2944475,
+    is_controlling: false,
+    reposted: 0,
+    support_amount: '0.0',
+    take_over_height: 0,
+    trending_global: 0,
+    trending_group: 0,
+    trending_local: 0,
+    trending_mixed: 0
+  },
+  name: 'Plandemie',
+  normalized_name: 'plandemie',
+  nout: 0,
+  permanent_url: 'lbry://Plandemie#63780a81ecdf1ffc65d08132465ef0045f02c83a',
+  reposted_claim: {
+    address: 'bY3D4seeLz6Tgvze44mjgWz8sesA2sBqMx',
+    amount: '0.01',
+    canonical_url: 'lbry://@SilvanoTrotta#f/Plandemie#9',
+    claim_id: '9cdea7e16245e67f23887953a0acffac2f92444a',
+    claim_op: 'create',
+    confirmations: 92,
+    height: 841988,
+    is_channel_signature_valid: true,
+    meta: {
+      activation_height: 842173,
+      creation_height: 841988,
+      creation_timestamp: 1601925077,
+      effective_amount: '0.0',
+      expiration_height: 2944388,
+      is_controlling: false,
+      reposted: 50,
+      support_amount: '209.5',
+      take_over_height: 0,
+      trending_global: 0,
+      trending_group: 0,
+      trending_local: 0,
+      trending_mixed: 5.054037570953369
+    },
+    name: 'Plandemie',
+    normalized_name: 'plandemie',
+    nout: 0,
+    permanent_url: 'lbry://Plandemie#9cdea7e16245e67f23887953a0acffac2f92444a',
+    short_url: 'lbry://Plandemie#9',
+    signing_channel: {
+      address: 'bY3D4seeLz6Tgvze44mjgWz8sesA2sBqMx',
+      amount: '0.01',
+      canonical_url: 'lbry://@SilvanoTrotta#f',
+      claim_id: 'f16e438efc5600c85b13a666ea63bd9a8dde4695',
+      claim_op: 'create',
+      confirmations: 11351,
+      has_signing_key: false,
+      height: 830729,
+      meta: [Object],
+      name: '@SilvanoTrotta',
+      normalized_name: '@silvanotrotta',
+      nout: 0,
+      permanent_url: 'lbry://@SilvanoTrotta#f16e438efc5600c85b13a666ea63bd9a8dde4695',
+      short_url: 'lbry://@SilvanoTrotta#f',
+      timestamp: 1600113203,
+      txid: '0746cb87a414f77bb0ec5c941233380274bf073c0324cdecac010a20fca70505',
+      type: 'claim',
+      value: [Object],
+      value_type: 'channel'
+    },
+    timestamp: 1601925077,
+    txid: '9faa6f2b9f9d00e28fbd1e6c15a9cbbb07f8b694242570ff2d35f08d415448be',
+    type: 'claim',
+    value: {
+      description: 'Ils suivent leur Plan, nous on est là pour le faire échouer. \n' +
+        'www.bonsens.org\n' +
+        '\n' +
+        'https://www.facebook.com/BonSensAssociation\n' +
+        '\n' +
+        'http://www.profession-gendarme.com/bonsens-org-naissance-de-votre-association/\n' +
+        '\n' +
+        'https://www.youtube.com/watch?v=a1ZnjByK9ic&feature=emb_logo\n' +
+        '\n' +
+        'https://www.nationalreview.com/2020/10/stats-hold-a-surprise-lockdowns-may-have-had-little-effect-on-covid-19-spread/\n' +
+        '\n' +
+        'https://www.bfmtv.com/sante/coronavirus-des-signes-de-tension-dans-les-hopitaux-d-ile-de-france_AV-202009220046.html\n' +
+        '\n' +
+        'https://www.bfmtv.com/politique/coronavirus-jean-castex-estime-que-la-crise-sanitaire-risque-de-s-installer-dans-la-duree_AN-20201005017
+8.html\n' +
+        '\n' +
+        'https://www.lesechos.fr/monde/europe/covid-19-comme-a-paris-les-mesures-restrictives-se-renforcent-dans-les-grandes-capitales-europeenne
+s-1251873\n' +
+        '\n' +
+        '\n',
+      languages: [Array],
+      license: 'All rights reserved',
+      release_time: '1601924991',
+      source: [Object],
+      stream_type: 'video',
+      tags: [Array],
+      thumbnail: [Object],
+      title: 'La Plandémie ! ',
+      video: [Object]
+    },
+    value_type: 'stream'
+  },
+  short_url: 'lbry://Plandemie#63',
+  signing_channel: {
+    address: 'bKwW7fpcgXtNpXshZATk8HW87tBVjAQ19C',
+    amount: '0.001',
+    canonical_url: 'lbry://@neonews#6',
+    claim_id: '6e202c3726d1225c90637a2204c696b12c746a78',
+    claim_op: 'update',
+    confirmations: 57,
+    has_signing_key: false,
+    height: 842023,
+    meta: {
+      activation_height: 835473,
+      claims_in_channel: 44,
+      creation_height: 835473,
+      creation_timestamp: 1600876532,
+      effective_amount: '5.001',
+      expiration_height: 2937873,
+      is_controlling: true,
+      reposted: 0,
+      support_amount: '5.0',
+      take_over_height: 835473,
+      trending_global: 0,
+      trending_group: 0,
+      trending_local: 0,
+      trending_mixed: 0
+    },
+    name: '@neonews',
+    normalized_name: '@neonews',
+    nout: 0,
+    permanent_url: 'lbry://@neonews#6e202c3726d1225c90637a2204c696b12c746a78',
+    short_url: 'lbry://@neonews#6',
+    timestamp: 1601930967,
+    txid: '5430a781e05c0e0280cdfe5acc167b4db5a53281360a24c781a4f9c612bb67a7',
+    type: 'claim',
+    value: {
+      cover: [Object],
+      description: '\t\tmostly reposting english language LBRY selected news',
+      public_key: '3056301006072a8648ce3d020106052b8104000a03420004a1e2b3823a103441a63446961fb81dc439599dd6b6f6d35a581709f992631787090de52e925c1a
+1f60b91ad35e95ad88dffe07efd29c64874f4e067d5e89ec44',
+      public_key_id: 'bN2uawZuYrSdbMKd4H74Pju9D4FtrrWpcc',
+      tags: [Array],
+      thumbnail: [Object],
+      title: 'english language LBRY selected news'
+    },
+    value_type: 'channel'
+  },
+  timestamp: 1601938590,
+  txid: '96b2621d0c7eab7c1025fa29735362aac4e3df759f4adf42b15efaa5d37553d9',
+  type: 'claim',
+  value: { claim_hash: 'SkSSL6z/rKBTeYgjf+ZFYuGn3pw=' },
+  value_type: 'repost'
+}
+
