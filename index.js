@@ -19,7 +19,6 @@ const config = require("./config.json");
 // config.prefix contains the message prefix.
 
 async function getReposts(channel_id) {
-var reposts = [];
 	    var reposts = []
 	    const body = {method: "claim_search",
 		            params: {channel_ids: [channel_id],
