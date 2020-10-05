@@ -32,7 +32,8 @@ async function getReposts(channel_id) {
 		        })
 	    const result = await call.json()
 	    result.result.items.map(item => {
-            reposts.push(item.canonical_url)
+            //reposts.push(item.canonical_url)
+	    reposts.push([item.canonical_url, item.timestamp])
 
             })
 //	console.log(reposts)
