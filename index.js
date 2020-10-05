@@ -20,7 +20,7 @@ const config = require("./config.json");
 
 async function getReposts(channel_id) {
 var reposts = [];
-	    const reposts = []
+	    var reposts = []
 	    const body = {method: "claim_search",
 		            params: {channel_ids: [channel_id],
 				                     claim_type: 'repost',
