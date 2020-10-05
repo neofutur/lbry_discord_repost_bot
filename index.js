@@ -63,11 +63,11 @@ setInterval(async() => {
   //const hm = "http://neoxena.ww7.be/heatmap_5m.png" + "?t=" + d;
   const datenow = new Date();
   const dateutc = datenow.toUTCString();
-  var reposts = [];
+  var repostslist = [];
   //var reposts = getReposts('6e202c3726d1225c90637a2204c696b12c746a78')
   //reposts = await getReposts(yourLBRYchannelClaimId);
-  reposts = await getReposts(yourLBRYchannelClaimId);
-  console.log ( reposts );
+  repostslist = await getReposts(yourLBRYchannelClaimId);
+  console.log ( repostslist );
   // building the embed that will be posted
   const HMEmbed = new Discord.MessageEmbed()
 	          .setColor('#0099ff')
