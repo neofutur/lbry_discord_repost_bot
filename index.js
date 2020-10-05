@@ -16,6 +16,28 @@ const config = require("./config.json");
 // config.token contains the bot's token
 // config.prefix contains the message prefix.
 
+async function getReposts(channel_id) {
+	    const reposts = []
+	    const body = {method: "claim_search",
+		            params: {channel_ids: [channel_id],
+				                     claim_type: 'repost',
+				                     order_by: 'release_time',
+				                     no_totals: true,
+				                     page_size: 10}}
+	    const call = await fetch('http://localhost:5279', {
+		            method: 'post',
+		            body:    JSON.stringify(body),
+		        })
+	    const result = await call.json()
+	    result.result.items.map(item => {
+         // console.log(item.canonical_url)
+         reposts.push(item.canonical_url)
+
+            })
+		    //                 console.log(reposts)
+                    return reposts
+}
+                     
 // the heatmap screenshot here is generated with a puppeteer headless chromium
 const  intervalmilliseconds = config.posteveryXmins * 60000; 
 const channelid=config.channelid;
@@ -40,6 +62,7 @@ setInterval(() => {
   const hm = "http://neoxena.ww7.be/heatmap_5m.png" + "?t=" + d;
    const datenow = new Date();
    const dateutc = datenow.toUTCString();
+   getReposts('6e202c3726d1225c90637a2204c696b12c746a78')
   // building the embed that will be posted
   const HMEmbed = new Discord.MessageEmbed()
 	          .setColor('#0099ff')
@@ -109,6 +132,8 @@ client.on("message", async message => {
   }
   
 });
+
+
 
 client.login(config.token);
 
