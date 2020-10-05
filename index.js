@@ -3,6 +3,8 @@ const Discord = require("discord.js");
 //global.fetch = require("node-fetch");
 const fetch = require("node-fetch");
 
+let last_posted_timestamp=0;
+
 /*
  DISCORD.JS VERSION 12 CODE
 */
@@ -37,6 +39,7 @@ async function getReposts(channel_id) {
 
             })
 //	console.log(reposts)
+	console.log(last_posted_timestamp)
          return reposts
 }
                      
@@ -69,6 +72,7 @@ setInterval(async() => {
   //reposts = await getReposts(yourLBRYchannelClaimId);
   repostslist = await getReposts(yourLBRYchannelClaimId);
   console.log ( repostslist );
+	console.log(last_posted_timestamp)
   // building the embed that will be posted
   const HMEmbed = new Discord.MessageEmbed()
 	          .setColor('#0099ff')
