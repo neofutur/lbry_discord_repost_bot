@@ -88,8 +88,9 @@ setInterval(async() => {
   {
    var LBRYlink = element[0];
    var timestamp = element[1];
-   console.log ( element);
-   //console.log ( element[3]);
+   var image =  element[2].url;
+   //console.log(image);
+   var title =  element[3];
    if ( timestamp > last_posted_timestamp )
    {
     //console.log ( timestamp + " > " + last_posted_timestamp );
@@ -99,11 +100,12 @@ setInterval(async() => {
     //console.log ( timestamp );
     // building the embed that will be posted
     const HMEmbed = new Discord.MessageEmbed()
-	.setTitle('New post on ' + yourLBRYchannelURL )
-	.setDescription( '[news] ' + HTTPlink + 'new repost ' )
+	.setTitle( title )
+	.setDescription( '[news] ' + HTTPlink + ' new repost ' )
 	          .setColor('#0099ff')
 	.addField('title', 'recent news reposted on [link](https://lbry.tv/'+ yourLBRYchannelURL +') @neonews', dateutc, true)
 	.setTimestamp()
+	.setImage( image)
 	.setFooter('Source : lbry://'+ yourLBRYchannelURL +' ', 'https://bitcoinwisdom.io/apple-touch-icon-180x180.png');
     client.channels.cache.get(config.channelid).send(HMEmbed);
     last_posted_timestamp = timestamp;
