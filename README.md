@@ -11,6 +11,12 @@ https://discord.com/oauth2/authorize?client_id=760885448792473701&scope=bot&perm
   npm i node-fetch --save
 
 rename or copy config.json.example to config.json
+
 edit config.json to put your own lbry claimid, url, bot token 
+
+you need to have a working lbrynet SDK on the same computer so the bot can ask infos to the LBC blockchain : 
+
+source lbry-venv/bin/activate
+lbrynet start
 
 
