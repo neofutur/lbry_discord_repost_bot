@@ -55,8 +55,7 @@ async function getReposts(channel_id)
  })
  return reposts
 }
-                     
-// the heatmap screenshot here is generated with a puppeteer headless chromium
+
 const  intervalmilliseconds = config.posteveryXmins * 60000; 
 const channelid=config.channelid;
 const yourLBRYchannelClaimId=config.yourLBRYchannelClaimId;
@@ -95,7 +94,7 @@ setInterval(async() => {
    {
     //console.log ( timestamp + " > " + last_posted_timestamp );
     //console.log ( LBRYlink );
-    var HTTPlink = LBRYlink.replace("lbry://", "https://lbry.tv/"); 
+    var HTTPlink = LBRYlink.replace("lbry://", "https://odysee.com/"); 
     //console.log ( HTTPlink );
     //console.log ( timestamp );
     // building the embed that will be posted
