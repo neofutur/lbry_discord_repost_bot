@@ -8,7 +8,7 @@ bot posting on your discord server all the reposts of your LBRY channel
 
   npm i node-fetch --save
 
-# configration of your bot : 
+# configuration of your bot : 
 rename or copy config.json.example to config.json
 
 edit config.json to put your own lbry claimid, url, bot token 
