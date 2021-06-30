@@ -1,8 +1,14 @@
 { 
-	  "token"  : "INSERT YOUR OWN DISCORD CHANNEL BOT TOKEN HERE             ",
-	  "prefix" : "+",
-	  "channelid" : "put your discord channel id here",
-	  "posteveryXmins" : "5",
-	  "yourLBRYchannelClaimId" : "6e202c3726d1225c90637a2204c696b12c746a78",
-	  "yourLBRYchannelURL" : "@neonews#6"
+          "token"  : "TOKEN ID HERE",
+          "prefix" : "+",
+          "channelid" : "760620390509838417",
+          "posteveryXmins" : "1",
+          "yourLBRYchannelClaimId" : "5be4de536770866b06990f11abc3f129631347ef",
+          "yourLBRYchannelURL" : "@neonews_fr#5",
+          "language" : "en",
+          "postcolor" : "#0099ff",
+          "posttitle": "[news] ",
+          "newpost" : "recent news reposted on [link](odysee.com/",
+          "newpostend" : ") @neonews",
+          "posticon" : "https://odysee.com/public/favicon.png"
 }
