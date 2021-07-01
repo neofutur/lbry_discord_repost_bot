@@ -17,5 +17,3 @@ you need to have a working lbrynet SDK on the same computer so the bot can ask i
 
 source lbry-venv/bin/activate
 lbrynet start
-
-
