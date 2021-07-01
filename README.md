@@ -12,6 +12,7 @@ bot posting on your discord server all the reposts of your LBRY channel
 rename or copy config.json.example to config.json
 
 edit config.json to put your own lbry claimid, url, bot token 
+( how to get your discord bot token ? : https://www.writebots.com/discord-bot-token/ )
 
 you need to have a working lbrynet SDK on the same computer so the bot can ask infos to the LBC blockchain : 
 
