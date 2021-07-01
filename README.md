@@ -19,4 +19,6 @@ you need to have a working lbrynet SDK on the same computer so the bot can ask i
 source lbry-venv/bin/activate
 lbrynet start
 
+# thanks LBRY initiative funding
 
+this bot have been funded on https://discord.com/channels/362322208485277697/681479694004387850/760874208501694534 
