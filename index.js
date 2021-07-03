@@ -56,7 +56,8 @@ async function getReposts(channel_id)
  return reposts
 }
 
-const  intervalmilliseconds = config.posteveryXmins * 60000; 
+const intervalmilliseconds = config.posteveryXmins * 60000; 
+// channelid' is declared but its value is never read?
 const channelid=config.channelid;
 const yourLBRYchannelClaimId=config.yourLBRYchannelClaimId;
 const yourLBRYchannelURL=config.yourLBRYchannelURL;
@@ -75,6 +76,7 @@ client.on("ready", () => {
   // this is the code to autopost every X minutes on a dedicated channel 
 setInterval(async() => {
   // we have to add a timestamp to the URL so that discord does not cache the image
+  // 'd' is declared but its value is never read?
   const d = Math.floor(Date.now() / 1000);
   //const hm = "http://neoxena.ww7.be/heatmap_5m.png" + "?t=" + d;
   const datenow = new Date();
@@ -101,7 +103,7 @@ setInterval(async() => {
     const HMEmbed = new Discord.MessageEmbed()
 	.setTitle( title )
 	.setDescription( '[news] ' + HTTPlink + ' new repost ' )
-	          .setColor('#0099ff')
+	.setColor('#0099ff')
 	.addField('title', 'recent news reposted on [link](https://lbry.tv/'+ yourLBRYchannelURL +') @neonews', dateutc, true)
 	.setTimestamp()
 	.setImage( image)
@@ -155,10 +157,10 @@ client.on("message", async message => {
   if(command === "ln") {
 
    // we have to add a timestamp to the URL so that discord does not cache the image
+   // 'd' is declared but its value is never read?
    const d = Math.floor(Date.now() / 1000);
    const datenow = new Date();
    const dateutc = datenow.toUTCString();
-
 
    // building the embed that will be posted
    const HMEmbed = new Discord.MessageEmbed()
@@ -179,7 +181,5 @@ client.on("message", async message => {
   
 });
 
-
-
+// Change Token ID in config.json, and do not commit with your Token ID!
 client.login(config.token);
-
