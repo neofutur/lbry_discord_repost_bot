@@ -33,14 +33,22 @@ const config = require("./config.json");
 
 async function getReposts(channel_id) 
 {
+ // TODO : also get the posts ( streams , uploaded videos )
+ var claim_types = [];
+ claim_types[0] =  'repost';
+ claim_types[1] =  'stream';
+
  var reposts = []
  const body = {method: "claim_search",
           params: {channel_ids: [channel_id],
-          claim_type: 'repost',
+          claim_type:  claim_types,
+          //claim_type: 'repost',
+          //claim_type: 'stream',
           order_by: 'release_time',
           timestamp: `>${last_posted_timestamp}`,
           no_totals: true,
           page_size: 10}}
+  console.log(body);
  const call = await fetch('http://localhost:5279', {
             method: 'post',
             body:    JSON.stringify(body),
@@ -48,10 +56,25 @@ async function getReposts(channel_id)
  const result = await call.json()
  result.result.items.map(item => 
  {
-  //reposts.push(item.canonical_url)
-  //reposts.push([item.canonical_url, item.timestamp])
-  //console.log(item.reposted_claim.value.thumbnail)
-  reposts.push([item.canonical_url, item.timestamp, item.reposted_claim.value.thumbnail, item.reposted_claim.value.title])
+  //console.log(item);
+  if ( item.type = 'claim' )
+  {
+  thumbnail =  item.value.thumbnail;
+  console.log(thumbnail);
+  //console.log(thumbnail['url']);
+  //console.log(item.timestamp);
+  //console.log(item.canonical_url);
+  //console.log(item.value.title);
+  //console.log(item.value.thumbnail.url);
+   reposts.push([item.canonical_url, item.timestamp, item.value.thumbnail, item.value.title])
+  }
+  else
+  {
+   //reposts.push(item.canonical_url)
+   //reposts.push([item.canonical_url, item.timestamp])
+   //console.log(item.reposted_claim.value.thumbnail)
+   reposts.push([item.canonical_url, item.timestamp, item.reposted_claim.value.thumbnail, item.reposted_claim.value.title])
+  }
  })
  return reposts
 }
@@ -94,7 +117,7 @@ setInterval(async() => {
    var title =  element[3];
    if ( timestamp > last_posted_timestamp )
    {
-    //console.log ( timestamp + " > " + last_posted_timestamp );
+    console.log ( timestamp + " > " + last_posted_timestamp );
     //console.log ( LBRYlink );
     var HTTPlink = LBRYlink.replace("lbry://", "https://odysee.com/"); 
     //console.log ( HTTPlink );
