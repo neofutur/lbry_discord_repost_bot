@@ -36,13 +36,8 @@ async function getReposts(channel_id)
  // TODO : also get the posts ( streams , uploaded videos )
  var claim_types = [];
  
- //console.log( postuploads );
- //console.log( postreposts );
-
  if ( postreposts == 'yes' )  claim_types.push( 'repost');
  if ( postuploads ==  'yes' ) claim_types.push( 'stream');
- //claim_types[0] =  'repost';
- //claim_types[1] =  'stream';
 
  var reposts = []
  const body = {method: "claim_search",
@@ -54,7 +49,7 @@ async function getReposts(channel_id)
           timestamp: `>${last_posted_timestamp}`,
           no_totals: true,
           page_size: 10}}
-  console.log(body);
+ //console.log(body);
  const call = await fetch('http://localhost:5279', {
             method: 'post',
             body:    JSON.stringify(body),
@@ -62,20 +57,24 @@ async function getReposts(channel_id)
  const result = await call.json()
  result.result.items.map(item => 
  {
-  //console.log(item);
-  if ( item.type = 'claim' )
+  //console.log ( "value_type : " + item.value_type );
+
+  if ( item.value_type === 'stream' )
   {
-  thumbnail =  item.value.thumbnail;
-  console.log(thumbnail);
-  //console.log(thumbnail['url']);
-  //console.log(item.timestamp);
-  //console.log(item.canonical_url);
-  //console.log(item.value.title);
-  //console.log(item.value.thumbnail.url);
+   thumbnail =  item.value.thumbnail;
+   //console.log( "claim item : ");
+   //console.log(item);
+   //console.log(thumbnail['url']);
+   //console.log(item.timestamp);
+   //console.log(item.canonical_url);
+   //console.log(item.value.title);
+   //console.log(item.value.thumbnail.url);
    reposts.push([item.canonical_url, item.timestamp, item.value.thumbnail, item.value.title])
   }
-  else
+  else if( item.value_type === 'repost' )
   {
+   //console.log( "repost item : ");
+   //console.log(item);
    //reposts.push(item.canonical_url)
    //reposts.push([item.canonical_url, item.timestamp])
    //console.log(item.reposted_claim.value.thumbnail)
@@ -94,7 +93,7 @@ const yourLBRYchannelClaimId=config.yourLBRYchannelClaimId;
 const yourLBRYchannelURL=config.yourLBRYchannelURL;
 
 //console.log(channelid);
-console.log(yourLBRYchannelClaimId);
+//console.log(yourLBRYchannelClaimId);
 //console.log(yourLBRYchannelURL);
 
 client.on("ready", () => {
@@ -108,7 +107,7 @@ client.on("ready", () => {
 setInterval(async() => {
   // we have to add a timestamp to the URL so that discord does not cache the image
   // 'd' is declared but its value is never read?
-  const d = Math.floor(Date.now() / 1000);
+  //const d = Math.floor(Date.now() / 1000);
   //const hm = "http://neoxena.ww7.be/heatmap_5m.png" + "?t=" + d;
   const datenow = new Date();
   const dateutc = datenow.toUTCString();
@@ -126,6 +125,7 @@ setInterval(async() => {
    if ( timestamp > last_posted_timestamp )
    {
     console.log ( timestamp + " > " + last_posted_timestamp );
+    console.log( "should repost : " + element);
     //console.log ( LBRYlink );
     var HTTPlink = LBRYlink.replace("lbry://", "https://odysee.com/"); 
     //console.log ( HTTPlink );
