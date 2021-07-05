@@ -3,6 +3,8 @@
           "prefix" : "+",
           "channelid" : "760620390509838417",
           "posteveryXmins" : "1",
+	  "postreposts" : "yes",
+	  "postuploads" : "yes",
           "yourLBRYchannelClaimId" : "5be4de536770866b06990f11abc3f129631347ef",
           "yourLBRYchannelURL" : "@neonews_fr#5",
           "language" : "en",
