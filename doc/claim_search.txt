@@ -1,3 +1,17 @@
+# the api request we use : 
+{
+  method: 'claim_search',
+  params: {
+    channel_ids: [ '5be4de536770866b06990f11abc3f129631347ef' ],
+    claim_type: [ 'repost', 'stream' ],
+    order_by: 'release_time',
+    timestamp: '>1625430549',
+    no_totals: true,
+    page_size: 10
+  }
+}
+
+# the complete doc : 
        {
                 "name": "claim_search",
                 "description": "Search for stream and channel claims on the blockchain.\n\nArguments marked with \"supports equality constraints\" allow prepending the\nvalue with an equality constraint such as '>', '>=', '<' and '<='\neg. --height=\">400000\" would limit results to only claims above 400k block height.",

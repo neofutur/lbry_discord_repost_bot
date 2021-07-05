@@ -35,8 +35,14 @@ async function getReposts(channel_id)
 {
  // TODO : also get the posts ( streams , uploaded videos )
  var claim_types = [];
- claim_types[0] =  'repost';
- claim_types[1] =  'stream';
+ 
+ //console.log( postuploads );
+ //console.log( postreposts );
+
+ if ( postreposts == 'yes' )  claim_types.push( 'repost');
+ if ( postuploads ==  'yes' ) claim_types.push( 'stream');
+ //claim_types[0] =  'repost';
+ //claim_types[1] =  'stream';
 
  var reposts = []
  const body = {method: "claim_search",
@@ -82,6 +88,8 @@ async function getReposts(channel_id)
 const intervalmilliseconds = config.posteveryXmins * 60000; 
 // channelid' is declared but its value is never read?
 const channelid=config.channelid;
+const postreposts = config.postreposts;
+const postuploads = config.postuploads;
 const yourLBRYchannelClaimId=config.yourLBRYchannelClaimId;
 const yourLBRYchannelURL=config.yourLBRYchannelURL;
 
