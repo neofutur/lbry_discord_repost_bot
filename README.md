@@ -16,9 +16,9 @@ edit config.json to put your own lbry claimid, url, bot token
 
 you can choose to post only the reposts, only the uploads, or both , to post both choose:
 
-"postreposts" : "yes",
+ "postreposts" : "yes",
 
-"postuploads" : "yes",
+ "postuploads" : "yes",
 
 in the config file, change to no if you dont want one of them
 
@@ -27,6 +27,12 @@ in the config file, change to no if you dont want one of them
 source lbry-venv/bin/activate
 lbrynet start
 
+# launch your bot :
+
+start the bot with :
+
+  nodejs ./index.js
+ 
 # thanks LBRY initiative funding
 
 this bot have been funded on https://discord.com/channels/362322208485277697/681479694004387850/760874208501694534 
