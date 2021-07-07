@@ -1,5 +1,5 @@
 # lbry_discord_repost_bot
-bot posting on your discord server all the posts and reposts of your LBRY channel
+bot posting on your discord server all the posts and / or  reposts of your LBRY channel
 
 # necessary dependencies you need to install : 
   `npm install discord.js --save`
